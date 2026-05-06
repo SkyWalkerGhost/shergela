@@ -140,6 +140,9 @@
                 tag: 'Laravel | PostgreSQL | VueJs | Stripe',
                 description: 'User-facing store pages with cart, checkout and product browsing.',
                 images: [
+                    'resources/images/qroli_store/front/new_products.png',
+                    'resources/images/qroli_store/front/filter_product.png',
+                    'resources/images/qroli_store/front/product_details.png',
                     'resources/images/qroli_store/front/cart.png',
                     'resources/images/qroli_store/front/login.png',
                     'resources/images/qroli_store/front/register.png',
@@ -173,7 +176,7 @@
 
                 <!-- Preview Image -->
                 <div @click="open = true" class="relative cursor-pointer overflow-hidden bg-slate-900 aspect-video">
-                    <img :src="project.images[0]" class="object-cover w-full h-full group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100">
+                    <img :src="project.images[0]" class="object-cover w-full h-full group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100" alt="">
                     <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                         <div class="bg-cyan-600 text-white p-2 rounded-full shadow-lg">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
@@ -212,7 +215,7 @@
                         <div class="flex-grow relative overflow-hidden flex items-center justify-center">
                             <button @click="prev()" class="absolute left-4 z-[110] p-2 text-white/50 hover:text-cyan-400"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
                             <div class="w-full h-full overflow-auto flex justify-center items-start" :class="zoomed ? 'cursor-zoom-out pt-4' : 'items-center cursor-zoom-in'" @click="zoomed = !zoomed">
-                                <img :src="project.images[imgIndex]" class="transition-all duration-300" :class="zoomed ? 'max-w-none w-[90%] mb-10 shadow-2xl' : 'max-h-[85%] max-w-[90%] object-contain shadow-xl'">
+                                <img :src="project.images[imgIndex]" class="transition-all duration-300" :class="zoomed ? 'max-w-none w-[90%] mb-10 shadow-2xl' : 'max-h-[85%] max-w-[90%] object-contain shadow-xl'" alt="">
                             </div>
                             <button @click="next()" class="absolute right-4 z-[110] p-2 text-white/50 hover:text-cyan-400"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
                         </div>
