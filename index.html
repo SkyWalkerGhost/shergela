@@ -116,42 +116,63 @@
 <section id="projects" class="max-w-8xl mx-auto px-6 py-24"
          x-data="{
         projects: [
+
             {
-                title: 'Online Store (Admin Panel)',
-                tag: 'Laravel | PostgreSQL',
-                description: 'Full-stack e-commerce system with dynamic filtering and admin dashboard.',
-                images: [
-                    'resources/images/qroli_store/dashboard.png',
-                    'resources/images/qroli_store/product.png',
-                    'resources/images/qroli_store/category_filter.png',
-                    'resources/images/qroli_store/add_product.png',
-                    'resources/images/qroli_store/edit_product.png',
-                    'resources/images/qroli_store/change_product_category.png',
-                    'resources/images/qroli_store/login.png',
-                    'resources/images/qroli_store/orders.png',
-                    'resources/images/qroli_store/order_details.png',
-                    'resources/images/qroli_store/transactions.png',
-                    'resources/images/qroli_store/payments.png',
-                    'resources/images/qroli_store/product_attributes.png'
-                ]
-            },
-            {
-                title: 'Online Store (Shop Pages)',
-                tag: 'Laravel | PostgreSQL | VueJs | Stripe',
-                description: 'User-facing store pages with cart, checkout and product browsing.',
-                images: [
-                    'resources/images/qroli_store/front/new_products.png',
-                    'resources/images/qroli_store/front/filter_product.png',
-                    'resources/images/qroli_store/front/product_details.png',
-                    'resources/images/qroli_store/front/cart.png',
-                    'resources/images/qroli_store/front/login.png',
-                    'resources/images/qroli_store/front/register.png',
-                    'resources/images/qroli_store/front/forgot_password.png',
-                    'resources/images/qroli_store/front/customer_dashboard.png',
-                    'resources/images/qroli_store/front/customer_points.png',
-                    'resources/images/qroli_store/front/address.png',
-                ]
-            },
+    title: 'Genealogy',
+    tag: 'Laravel | PostgreSQL | AlpineJS | TailwindCSS',
+    description: 'A modern genealogy platform for creating, managing, and exploring your family tree. Users can build their family history, connect relatives, manage surnames, and organize family information in one place.',
+    link: 'https://genealogy.com.ge',
+    status: 'online',
+    images: [
+        'resources/images/genealogy/main.png',
+        'resources/images/genealogy/my-family.png',
+        'resources/images/genealogy/surname.png',
+        'resources/images/genealogy/account.png',
+        'resources/images/genealogy/login.png',
+        'resources/images/genealogy/register.png',
+    ]
+},
+{
+    title: 'Online Store (Admin Panel)',
+    tag: 'Laravel | PostgreSQL | Bootstrap | Stripe',
+    description: 'Full-stack e-commerce system with dynamic filtering and admin dashboard.',
+    link: null,
+    status: 'offline',
+    images: [
+        'resources/images/qroli_store/dashboard.png',
+        'resources/images/qroli_store/product.png',
+        'resources/images/qroli_store/category_filter.png',
+        'resources/images/qroli_store/add_product.png',
+        'resources/images/qroli_store/edit_product.png',
+        'resources/images/qroli_store/change_product_category.png',
+        'resources/images/qroli_store/login.png',
+        'resources/images/qroli_store/orders.png',
+        'resources/images/qroli_store/order_details.png',
+        'resources/images/qroli_store/transactions.png',
+        'resources/images/qroli_store/payments.png',
+        'resources/images/qroli_store/product_attributes.png'
+    ]
+},
+{
+    title: 'Online Store (Shop Pages)',
+    tag: 'Laravel | PostgreSQL | VueJS | Bootstrap | Stripe',
+    description: 'User-facing store pages with cart, checkout and product browsing.',
+    link: null,
+    status: 'offline',
+    images: [
+        'resources/images/qroli_store/front/new_products.png',
+        'resources/images/qroli_store/front/filter_product.png',
+        'resources/images/qroli_store/front/product_details.png',
+        'resources/images/qroli_store/front/cart.png',
+        'resources/images/qroli_store/front/login.png',
+        'resources/images/qroli_store/front/register.png',
+        'resources/images/qroli_store/front/forgot_password.png',
+        'resources/images/qroli_store/front/customer_dashboard.png',
+        'resources/images/qroli_store/front/customer_points.png',
+        'resources/images/qroli_store/front/address.png',
+    ]
+},
+
 
         ]
     }">
@@ -186,14 +207,51 @@
 
                 <!-- Card Content -->
                 <div class="p-5 flex flex-col flex-grow">
-                    <div class="flex items-start justify-between mb-3">
-                        <h3 class="font-bold text-white leading-tight group-hover:text-cyan-400 transition" x-text="project.title"></h3>
-                        <span class="text-[9px] px-2 py-0.5 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20 font-mono uppercase tracking-tighter" x-text="project.tag"></span>
+                    <div class="flex items-start justify-between mb-3 gap-3">
+                        <h3 class="font-bold text-white leading-tight group-hover:text-cyan-400 transition"
+                            x-text="project.title"></h3>
+
+                        <div class="flex flex-col items-end gap-2 flex-shrink-0">
+
+                            <!-- Status -->
+                            <span
+                                    class="text-[10px] px-2.5 py-1 rounded-full border font-mono uppercase tracking-wide font-semibold"
+                                    :class="project.status === 'online'
+                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                : 'bg-slate-500/10 text-slate-400 border-slate-500/30'"
+                                    x-text="project.status">
+        </span>
+
+                            <!-- Tech Stack -->
+                            <span
+                                    class="text-[10px] px-2.5 py-1 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20 font-mono uppercase tracking-tight text-right"
+                                    x-text="project.tag">
+        </span>
+
+                        </div>
                     </div>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-5 flex-grow" x-text="project.description"></p>
-                    <button @click="open = true" class="w-full py-2 bg-slate-700/40 hover:bg-cyan-600 text-white rounded-lg transition-all text-xs font-bold uppercase tracking-wider">
-                        View Gallery
-                    </button>
+
+                    <p class="text-slate-400 leading-relaxed mb-5 flex-grow" x-text="project.description"></p>
+                    <div class="flex gap-2">
+
+                        <button
+                                @click="open = true"
+                                class="flex-1 py-2.5 bg-slate-700/40 hover:bg-cyan-600 text-white rounded-lg transition-all text-xs font-bold uppercase tracking-wider">
+                            View Gallery
+                        </button>
+
+                        <template x-if="project.link">
+                            <a
+                                    :href="project.link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex-1 py-2.5 bg-emerald-600/80 hover:bg-emerald-500 text-white rounded-lg transition-all text-xs font-bold uppercase tracking-wider text-center">
+                                Visit Site
+                            </a>
+                        </template>
+
+                    </div>
+
                 </div>
 
                 <!-- Modal Slider -->
